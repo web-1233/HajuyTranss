@@ -1,0 +1,636 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hajuy Trans - Rental Mobil Premium</title>
+    <meta name="description" content="Hajuy Trans - Rental mobil terpercaya, nyaman, dan premium untuk perjalanan bisnis dan wisata Anda.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --color-black: #0a0a0a;
+            --color-dark-grey: #1f1f1f;
+            --color-white: #ffffff;
+            --color-green: #1FA463;       
+            --color-green-light: #34D399; 
+            --color-green-dark: #047857;  
+            --color-grey-light: #f4f4f4;
+            --text-color: #333333;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--color-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--color-black);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        .container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; }
+        .section-padding { padding: 80px 0; }
+        .text-center { text-align: center; }
+        .text-green { color: var(--color-green-dark); }
+        .bg-black { background-color: var(--color-black); color: var(--color-white); }
+        .bg-grey { background-color: var(--color-grey-light); }
+
+        .btn {
+            display: inline-block; padding: 12px 30px; border-radius: 50px;
+            font-weight: 600; font-size: 14px; letter-spacing: 1px; cursor: pointer;
+            transition: var(--transition); border: 2px solid transparent; text-transform: uppercase;
+        }
+
+        .btn-primary { background: linear-gradient(45deg, var(--color-green-dark), var(--color-green)); color: var(--color-white); }
+        .btn-primary:hover { background: linear-gradient(45deg, var(--color-green), var(--color-green-light)); transform: translateY(-3px); box-shadow: 0 5px 15px rgba(31, 164, 99, 0.4); }
+
+        .btn-outline { border-color: var(--color-green); color: var(--color-green); background: transparent; }
+        .btn-outline:hover { background-color: var(--color-green); color: var(--color-white); }
+
+        .section-title { margin-bottom: 50px; position: relative; display: inline-block; }
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--color-green); margin: 0 auto; }
+
+        .fade-in-up { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; transition: var(--transition); padding: 20px 0; background: transparent; }
+        .navbar.scrolled { background-color: rgba(10, 10, 10, 0.95); padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        .navbar-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; color: var(--color-white); font-size: 1.5rem; font-weight: 700; font-family: 'Playfair Display', serif; }
+        .logo i { color: var(--color-green); font-size: 1.8rem; }
+        .nav-menu { display: flex; gap: 30px; }
+        .nav-link { color: var(--color-white); font-weight: 500; font-size: 0.95rem; position: relative; transition: var(--transition); }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--color-green); transition: var(--transition); }
+        .nav-link:hover::after { width: 100%; }
+        .nav-link:hover { color: var(--color-green-light); }
+        .hamburger { display: none; color: var(--color-white); font-size: 1.5rem; cursor: pointer; }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('hajuy.jpeg') no-repeat center center/cover;
+            display: flex; align-items: center; justify-content: center; text-align: center; color: var(--color-white); padding-top: 60px;
+        }
+        .hero-logo { font-size: 4rem; font-family: 'Playfair Display', serif; color: var(--color-green-light); margin-bottom: 20px; text-shadow: 0 5px 15px rgba(0,0,0,0.5); animation: fadeInDown 1s ease-out; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; color: var(--color-white); animation: fadeInUp 1s ease-out 0.3s backwards; }
+        .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 40px; font-weight: 300; animation: fadeInUp 1s ease-out 0.6s backwards; }
+        .hero-buttons { display: flex; gap: 20px; justify-content: center; animation: fadeInUp 1s ease-out 0.9s backwards; }
+
+        .promo-section { background-color: var(--color-dark-grey); color: var(--color-white); padding: 40px 0; overflow: hidden; position: relative; }
+        .slider-container { width: 100%; display: flex; transition: transform 0.8s ease-in-out; }
+        .slide { min-width: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 20px; }
+        .slide h3 { color: var(--color-green-light); font-size: 2rem; margin-bottom: 10px; }
+        .slide p { font-size: 1.2rem; }
+
+        .armada-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .car-card { background: var(--color-white); border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); transition: var(--transition); border: 1px solid #eee; }
+        .car-card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); border-color: var(--color-green); }
+        .car-image { width: 100%; height: 200px; object-fit: cover; }
+        .car-info { padding: 20px; }
+        .car-title { font-size: 1.4rem; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+        .car-specs { display: flex; justify-content: space-between; margin-bottom: 15px; font-size: 0.85rem; color: #666; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+        .car-spec-item { display: flex; align-items: center; gap: 5px; }
+        .car-spec-item i { color: var(--color-green); }
+        .car-price { font-size: 1.1rem; font-weight: 700; color: var(--color-green-dark); margin-bottom: 20px; display: block; }
+        .car-actions { display: flex; gap: 10px; }
+        .car-actions .btn { flex: 1; text-align: center; padding: 10px 5px; font-size: 12px; }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 15px; }
+        .gallery-item { position: relative; cursor: pointer; overflow: hidden; border-radius: 8px; height: 200px; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; opacity: 0; transition: var(--transition); }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay i { color: var(--color-white); font-size: 2rem; }
+
+        .features-grid, .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+        .feature-box, .service-box { text-align: center; padding: 30px 20px; background: var(--color-white); border-radius: 10px; box-shadow: var(--shadow); transition: var(--transition); }
+        .feature-box:hover, .service-box:hover { border-bottom: 3px solid var(--color-green); }
+        .feature-icon, .service-icon { font-size: 2.5rem; color: var(--color-green); margin-bottom: 20px; }
+        .feature-box h3, .service-box h3 { font-size: 1.2rem; margin-bottom: 10px; }
+
+        .testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .testimonial-card { background: var(--color-white); padding: 30px; border-radius: 10px; box-shadow: var(--shadow); position: relative; }
+        .testimonial-card::before { content: '\f10d'; font-family: 'Font Awesome 6 Free'; font-weight: 900; font-size: 2rem; color: rgba(31, 164, 99, 0.2); position: absolute; top: 20px; right: 20px; }
+        .stars { color: #FFD700; margin-bottom: 15px; }
+        .client-info { display: flex; align-items: center; gap: 15px; margin-top: 20px; }
+        .client-avatar { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; }
+
+        .info-tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 40px; flex-wrap: wrap; }
+        .tab-btn { padding: 10px 20px; background: transparent; border: 1px solid #ddd; border-radius: 30px; cursor: pointer; transition: var(--transition); }
+        .tab-btn.active, .tab-btn:hover { background: var(--color-green); color: var(--color-white); border-color: var(--color-green); }
+        .tab-content { display: none; background: var(--color-white); padding: 30px; border-radius: 10px; box-shadow: var(--shadow); max-width: 800px; margin: 0 auto; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+        .faq-item { border-bottom: 1px solid #eee; padding: 15px 0; }
+        .faq-item h4 { margin-bottom: 10px; font-size: 1.1rem; }
+
+        .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .contact-info-box { display: flex; flex-direction: column; gap: 20px; }
+        .info-item { display: flex; align-items: flex-start; gap: 15px; }
+        .info-item i { font-size: 1.5rem; color: var(--color-green); margin-top: 5px; }
+        
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-btn { width: 40px; height: 40px; border-radius: 50%; background: var(--color-black); color: var(--color-white); display: flex; align-items: center; justify-content: center; transition: var(--transition); }
+        .social-btn:hover { background: var(--color-green); transform: translateY(-3px); }
+        .map-container { height: 350px; border-radius: 10px; overflow: hidden; box-shadow: var(--shadow); }
+
+        footer { background-color: var(--color-black); color: #888; padding: 40px 0 20px; text-align: center; }
+        .footer-logo { font-size: 1.8rem; color: var(--color-white); font-family: 'Playfair Display', serif; margin-bottom: 10px; }
+        .footer-logo span { color: var(--color-green-light); }
+        .copyright { margin-top: 20px; font-size: 0.9rem; border-top: 1px solid #333; padding-top: 20px; }
+
+        .floating-wa { position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 999; transition: var(--transition); animation: pulse 2s infinite; }
+        .floating-wa:hover { transform: scale(1.1); }
+
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px); align-items: center; justify-content: center; }
+        .modal-content { background-color: var(--color-white); margin: auto; padding: 0; border-radius: 10px; width: 90%; max-width: 800px; position: relative; animation: slideDown 0.4s ease; max-height: 90vh; overflow-y: auto; }
+        .modal-close { position: absolute; top: 15px; right: 20px; color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer; z-index: 10; }
+        .modal-close:hover { color: var(--color-black); }
+        .modal-body { display: grid; grid-template-columns: 1fr 1fr; }
+        .modal-img { width: 100%; height: 100%; object-fit: cover; min-height: 300px; }
+        .modal-details { padding: 30px; }
+        .modal-title { color: var(--color-green-dark); font-size: 2rem; margin-bottom: 10px; }
+        .modal-price { font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; display: block; }
+        .modal-spec-list { margin-bottom: 20px; }
+        .modal-spec-list li { margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .modal-spec-list i { color: var(--color-green); width: 20px; }
+        
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); } 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); } }
+
+        @media (max-width: 768px) {
+            .navbar-content { padding: 0 15px; }
+            .hamburger { display: block; }
+            .nav-menu { position: fixed; top: 70px; right: -100%; width: 100%; height: calc(100vh - 70px); background-color: var(--color-black); flex-direction: column; align-items: center; justify-content: center; transition: var(--transition); }
+            .nav-menu.active { right: 0; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero-logo { font-size: 2.5rem; }
+            .modal-body { grid-template-columns: 1fr; }
+            .modal-img { height: 200px; }
+            .contact-wrapper { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <a href="#" class="logo"><i class="fas fa-car-side"></i> Hajuy Trans</a>
+            <div class="hamburger" id="hamburger"><i class="fas fa-bars"></i></div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Beranda</a></li>
+                <li><a href="#armada" class="nav-link">Armada</a></li>
+                <li><a href="#gallery" class="nav-link">Galeri</a></li>
+                <li><a href="#services" class="nav-link">Layanan</a></li>
+                <li><a href="#why-us" class="nav-link">Tentang Kami</a></li>
+                <li><a href="#contact" class="nav-link">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero" id="home">
+        <div class="container">
+            <h1 class="brand-title">Hajuy Trans</h1>
+            <h1>Rental Mobil Terpercaya & Nyaman</h1>
+            <p>Melayani perjalanan bisnis, wisata, keluarga, antar jemput bandara, dan kebutuhan transportasi lainnya dengan standar pelayanan premium.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/6285721119951?text=Halo%20Hajuy%20Trans,%20saya%20ingin%20melakukan%20pemesanan%20rental%20mobil." class="btn btn-primary">Booking Sekarang</a>
+                <a href="#armada" class="btn btn-outline">Lihat Armada</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- PROMO SLIDER -->
+    <section class="promo-section" id="promo">
+        <div class="container">
+            <div class="slider-container" id="sliderContainer">
+                <div class="slide"><h3>Promo Spesial</h3><p>Rental Harian Harga Terbaik untuk Keluarga!</p></div>
+                <div class="slide"><h3>Layanan 07.00-17.00</h3><p>Antar Jemput Bandara Kapan Saja, Nyaman & Tepat Waktu.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARMADA SECTION -->
+    <section class="section-padding" id="armada">
+        <div class="container">
+            <div class="text-center section-title fade-in-up">
+                <h2>Armada Kami</h2>
+                <p>Pilihan unit terbaik untuk kenyamanan perjalanan Anda</p>
+            </div>
+            <div class="armada-grid" id="armadaGrid"></div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="section-padding bg-grey" id="gallery">
+        <div class="container">
+            <div class="text-center section-title fade-in-up">
+                <h2>Galeri</h2>
+                <p>Momen perjalanan bersama Hajuy Trans</p>
+            </div>
+            <div class="gallery-grid" id="galleryGrid"></div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section-padding" id="why-us">
+        <div class="container">
+            <div class="text-center section-title fade-in-up"><h2>Kenapa Memilih Kami</h2></div>
+            <div class="features-grid">
+                <div class="feature-box fade-in-up"><i class="fas fa-car feature-icon"></i><h3>Armada Prima</h3><p>Unit mobil bersih, terawat, dan selalu dalam kondisi siap jalan.</p></div>
+                <div class="feature-box fade-in-up"><i class="fas fa-user-tie feature-icon"></i><h3>Driver Profesional</h3><p>Pengemudi berpengalaman, ramah, dan mengutamakan keselamatan.</p></div>
+                <div class="feature-box fade-in-up"><i class="fas fa-tags feature-icon"></i><h3>Harga Kompetitif</h3><p>Harga transparan dan bersaing dengan kualitas pelayanan premium.</p></div>
+                <div class="feature-box fade-in-up"><i class="fas fa-headset feature-icon"></i><h3>Layanan 07.00-17.00</h3><p>Siap melayani kebutuhan transportasi Anda kapan saja.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LAYANAN SECTION -->
+    <section class="section-padding bg-black" id="services">
+        <div class="container">
+            <div class="text-center section-title fade-in-up">
+                <h2 style="color: white;">Layanan Kami</h2>
+                <div style="background: var(--color-green); width: 60px; height: 3px; margin: 0 auto;"></div>
+            </div>
+            <div class="services-grid" style="margin-top: 50px;">
+                <div class="service-box fade-in-up"><i class="fas fa-calendar-day service-icon"></i><h3>Rental Harian</h3></div>
+                <div class="service-box fade-in-up"><i class="fas fa-calendar-week service-icon"></i><h3>Rental Mingguan</h3></div>
+                <div class="service-box fade-in-up"><i class="fas fa-calendar-alt service-icon"></i><h3>Rental Bulanan</h3></div>
+                <div class="service-box fade-in-up"><i class="fas fa-plane-departure service-icon"></i><h3>Antar Jemput Bandara</h3></div>
+                <div class="service-box fade-in-up"><i class="fas fa-city service-icon"></i><h3>Carter Dalam/Luar Kota</h3></div>
+                <div class="service-box fade-in-up"><i class="fas fa-suitcase-rolling service-icon"></i><h3>Wisata & Dinas</h3></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section-padding" id="testimonials">
+        <div class="container">
+            <div class="text-center section-title fade-in-up">
+                <h2>Testimoni Pelanggan</h2>
+                <p>Apa kata mereka tentang Hajuy Trans</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card fade-in-up">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Pelayanan sangat memuaskan, mobil bersih dan wangi. Driver sangat sopan dan hafal jalan."</p>
+                    <div class="client-info"><img src="https://picsum.photos/seed/user1/100/100.jpg" alt="Client" class="client-avatar"><div><h4>Budi Santoso</h4><small>Wiraswasta</small></div></div>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Rental mobil terbaik di area ini. Booking mudah via WA, harga transparan, unit Alphardnya mantap."</p>
+                    <div class="client-info"><img src="https://picsum.photos/seed/user2/100/100.jpg" alt="Client" class="client-avatar"><div><h4>Siti Aminah</h4><small>Traveler</small></div></div>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Tepat waktu untuk penjemputan bandara. Sangat recommended untuk perjalanan bisnis."</p>
+                    <div class="client-info"><img src="https://picsum.photos/seed/user3/100/100.jpg" alt="Client" class="client-avatar"><div><h4>Andi Wijaya</h4><small>Manager</small></div></div>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Keluarga sangat senang dengan pelayanannya. Innova Rebornnya nyaman banget."</p>
+                    <div class="client-info"><img src="https://picsum.photos/seed/user4/100/100.jpg" alt="Client" class="client-avatar"><div><h4>Rina Marlina</h4><small>Ibu Rumah Tangga</small></div></div>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Proses cepat, amanah, dan terpercaya. Pasti akan sewa lagi di Hajuy Trans."</p>
+                    <div class="client-info"><img src="https://picsum.photos/seed/user5/100/100.jpg" alt="Client" class="client-avatar"><div><h4>H. Faisal</h4><small>Pengusaha</small></div></div>
+                </div>
+                <div class="testimonial-card fade-in-up">
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Driver sangat kooperatif dan mobil bagus. Perjalanan jadi lebih menyenangkan."</p>
+                    <div class="client-info"><img src="https://picsum.photos/seed/user6/100/100.jpg" alt="Client" class="client-avatar"><div><h4>Dian Sastro</h4><small>Artis</small></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO & FAQ SECTION -->
+    <section class="section-padding bg-grey" id="info">
+        <div class="container">
+            <div class="text-center section-title fade-in-up"><h2>Informasi Lebih Lanjut</h2></div>
+            <div class="info-tabs fade-in-up">
+                <button class="tab-btn active" onclick="openTab(event, 'process')">Cara Booking</button>
+                <button class="tab-btn" onclick="openTab(event, 'payment')">Pembayaran</button>
+                <button class="tab-btn" onclick="openTab(event, 'faq')">FAQ</button>
+            </div>
+            <div id="process" class="tab-content active fade-in-up">
+                <h3>Proses Pemesanan Mudah</h3>
+                <ul style="margin-top: 15px; list-style-type: decimal; padding-left: 20px;">
+                    <li style="margin-bottom: 10px;">Pilih unit mobil yang Anda inginkan.</li>
+                    <li style="margin-bottom: 10px;">Hubungi kami via WhatsApp di 085721119951.</li>
+                    <li style="margin-bottom: 10px;">Konfirmasi ketersediaan jadwal dan unit.</li>
+                    <li style="margin-bottom: 10px;">Lakukan pengiriman data diri (KTP/SIM).</li>
+                    <li style="margin-bottom: 10px;">Pembayaran DP (Down Payment) sebagai tanda jadi.</li>
+                    <li>Unit siap diantar sesuai lokasi dan waktu kesepakatan.</li>
+                </ul>
+            </div>
+            <div id="payment" class="tab-content fade-in-up">
+                <h3>Cara Pembayaran</h3>
+                <p>Kami menerima berbagai metode pembayaran untuk kenyamanan Anda:</p>
+                <ul style="margin-top: 10px; list-style-type: circle; padding-left: 20px;">
+                    <li style="margin-bottom: 10px;"><strong>Transfer Bank:</strong> BCA, BRI.</li>
+                    <li style="margin-bottom: 10px;"><strong>No Rekening:</strong> BCA ( 0382177931 ) BRI ( 009201081133500 )</li>
+                    <li style="margin-bottom: 10px;"><strong>Pelunasan:</strong> H-1 keberangkatan</li>
+                </ul>
+            </div>
+            <div id="faq" class="tab-content fade-in-up">
+                <h3>Pertanyaan yang Sering Ditanyakan (FAQ)</h3>
+                <div class="faq-item"><h4>Apakah bisa lepas kunci?</h4><p>Ya, kami menyediakan layanan lepas kunci dengan syarat melampirkan jaminan (KTP Asli + KK/SIM).</p></div>
+                <div class="faq-item"><h4>Apakah harga sudah termasuk BBM?</h4><p>Untuk sewa dengan supir, harga belum termasuk BBM (kecuali paket All-in). Untuk lepas kunci, tangki harus full saat serah terima.</p></div>
+                <div class="faq-item"><h4>Berapa lama batas waktu pembatalan?</h4><p>Pembatalan H-3 akan dikenakan potongan DP sebesar 50%. Pembatalan H-1 DP hangus.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="section-padding" id="contact">
+        <div class="container">
+            <div class="text-center section-title fade-in-up"><h2>Hubungi Kami</h2></div>
+            <div class="contact-wrapper">
+                <div class="contact-info-box fade-in-up">
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div><h3>Alamat</h3><p>Jl. selabintana km 5 desa warnasari kec. sukabumi, kab sukabumi jawa barat, 43151 (area parkir ryzzy azzahra)</p></div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div><h3>WhatsApp</h3><p>0857-2111-9951 (07.00 - 17.00)</p></div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div><h3>Email</h3><p>Hajuyberkahmandiri@gmail.com</p></div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <div><h3>Jam Operasional</h3><p>07.00 - 17.00</p></div>
+                    </div>
+                    
+                    <div class="social-icons">
+                        <a href="https://wa.me/6285721119951" target="_blank" rel="noopener noreferrer" class="social-btn" title="Chat WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/sewa_hiace_elf_mobil_sukabumi?utm_source=qr%igsh=NHZuN2tnZXI5aHFy" target="_blank" rel="noopener noreferrer" class="social-btn" title="Kunjungi Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/hajuytrans" target="_blank" rel="noopener noreferrer" class="social-btn" title="Kunjungi Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@rentcarsukabumi" target="_blank" rel="noopener noreferrer" class="social-btn" title="Kunjungi TikTok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="map-container fade-in-up">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d458.05337251178685!2d106.9408336650498!3d-6.886502014622321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e684980161c6133%3A0xecd2f0345b2a3a44!2sSewa%20Hiace%20Elf%20Mobil%20Sukabumi%20(HAJUY%20TRANS)!5e1!3m2!1sid!2sid!4v1782190879799!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo"><i class="fas fa-car-side"></i> Hajuy <span>Trans</span></div>
+            <p>Melayani dengan aman, nyaman, dan terpercaya.</p>
+            <div class="copyright"> CV Hajuy Berkah Mandiri</div>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/6285721119951?text=Halo%20Hajuy%20Trans,%20saya%20ingin%20melakukan%20pemesanan%20rental%20mobil." class="floating-wa" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- MODAL DETAIL UNIT -->
+    <div id="carModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-body">
+                <img src="" alt="Car Detail" class="modal-img" id="modalImg">
+                <div class="modal-details">
+                    <h2 class="modal-title" id="modalTitle">Nama Mobil</h2>
+                    <span class="modal-price text-green" id="modalPrice">Rp 0</span>
+                    <ul class="modal-spec-list">
+                        <li><i class="fas fa-calendar"></i> <span id="modalYear">Tahun</span></li>
+                        <li><i class="fas fa-cogs"></i> <span id="modalTrans">Transmisi</span></li>
+                        <li><i class="fas fa-users"></i> <span id="modalSeat">Kapasitas</span> Penumpang</li>
+                        <li><i class="fas fa-suitcase"></i> <span id="modalBagasi">Kapasitas Bagasi</span></li>
+                        <li><i class="fas fa-snowflake"></i> AC Dingin</li>
+                        <li><i class="fas fa-check-circle"></i> Kondisi Prima</li>
+                        <li><i class="fas fa-user-shield"></i> Driver Profesional</li>
+                    </ul>
+                    <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin-bottom: 20px; font-size: 0.9rem;">
+                        <strong>Syarat & Ketentuan:</strong><br>
+                        - KTP Asli / Jaminan <br>
+                        - Booking Fee minimal 30%<br>
+                        - Pelunasan dilakukan saat serah terima unit.
+                    </div>
+                    <a href="https://wa.me/6285721119951?text=Halo%20Hajuy%20Trans,%20saya%20ingin%20booking%20mobil%20ini." class="btn btn-primary" style="width: 100%; text-align: center;">Booking WhatsApp Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL LIGHTBOX GALERI -->
+    <div id="lightboxModal" class="modal">
+        <span class="modal-close" onclick="closeLightbox()" style="color: white; top: 20px; right: 30px; font-size: 40px;">&times;</span>
+        <div style="margin: auto; display: block; width: 80%; max-width: 900px;">
+            <img id="lightboxImg" style="width: 100%; height: auto; border-radius: 5px;">
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const cars = [
+            { name: "Toyota Hiace", year: "2023", trans: "Manual", cap: "14", bagasi: "Sedang", price: "Rp 1.200.000 / hari", img: "hiace.jpg" },
+            { name: "Elf Long", year: "2017", trans: "Manual", cap: "19", bagasi: "Sedang", price: "Rp 1.300.000 / hari", img: "elf.jpg" },
+            { name: "Toyota Innova Reborn", year: "2022", trans: "Matik", cap: "7", bagasi: "Besar", price: "Rp 750.000 / hari", img: "innova.jpg" },
+            { name: "Toyota Avanza", year: "2023", trans: "Matik", cap: "7", bagasi: "Besar", price: "Rp 350.000 / hari", img: "avanza.jpg" },
+            { name: "Mitsubishi Xpander", year: "2023", trans: "Matik", cap: "7", bagasi: "Besar", price: "Rp 400.000 / hari", img: "expander.jpg" },
+            { name: "Toyota Hiace Premio", year: "2024", trans: "Manual", cap: "14", bagasi: "Sangat Besar", price: "Rp 1.400.000 / hari", img: "premio.jpg" },
+            { name: "Xenia", year: "2023", trans: "Matik", cap: "5", bagasi: "Sedang", price: "Rp 350.000 / hari", img: "xenia.jpg" },
+            { name: "Xl7", year: "2023", trans: "Manual", cap: "5", bagasi: "Kecil", price: "Rp 350.000 / hari", img: "xl7.jpg" },
+            { name: "Yaris", year: "2023", trans: "Manual", cap: "7", bagasi: "Sedang", price: "Rp 350.000 / hari", img: "yaris.jpg" },
+            { name: "Stargazer", year: "2023", trans: "Manual", cap: "7", bagasi: "Sedang", price: "Rp 375.000 / hari", img: "stargazer.jpg" },
+        ];
+
+        const armadaGrid = document.getElementById('armadaGrid');
+        cars.forEach((car, index) => {
+            const card = document.createElement('div');
+            card.className = 'car-card fade-in-up';
+            card.innerHTML = `
+                <img src="${car.img}" alt="${car.name}" class="car-image">
+                <div class="car-info">
+                    <div class="car-title"><h3>${car.name}</h3></div>
+                    <div class="car-specs">
+                        <div class="car-spec-item"><i class="fas fa-calendar"></i> ${car.year}</div>
+                        <div class="car-spec-item"><i class="fas fa-cogs"></i> ${car.trans}</div>
+                        <div class="car-spec-item"><i class="fas fa-users"></i> ${car.cap} Kursi</div>
+                    </div>
+                    <span class="car-price">${car.price}</span>
+                    <div class="car-actions">
+                        <a href="https://wa.me/6285721119951?text=Halo%20Hajuy%20Trans,%20saya%20ingin%20booking%20${car.name}" class="btn btn-primary">Booking WA</a>
+                        <button onclick="openModal(${index})" class="btn btn-outline">Detail Unit</button>
+                    </div>
+                </div>
+            `;
+            armadaGrid.appendChild(card);
+        });
+
+        /* 
+        =========================================================
+        >>> TEMPAT GANTI FOTO GALERI <<<
+        Ganti teks di dalam tanda kutip ("...") dengan link foto Anda.
+        Jika foto Anda berada di folder yang sama dengan file ini,
+        Anda bisa menulisnya seperti: "foto-saya-1.jpg"
+        ========================================================= 
+        */
+        const galleryImages = [
+            "hajuy1.jpeg", // Ganti dengan link foto 1
+            "hajuy2.jpeg", // Ganti dengan link foto 2
+            "hajuy3.jpeg", // Ganti dengan link foto 3
+            "hajuy4.jpeg", // Ganti dengan link foto 4
+            "hajuy5.jpeg", // Ganti dengan link foto 5
+            "hajuy6.jpeg", // Ganti dengan link foto 6
+            "hajuy7.jpeg", // Ganti dengan link foto 7
+            "hajuy8.jpeg", // Ganti dengan link foto 8
+        ];
+        /* 
+        ========================================================= 
+        */
+
+        const galleryGrid = document.getElementById('galleryGrid');
+        galleryImages.forEach((imgSrc, i) => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item fade-in-up';
+            item.innerHTML = `
+                <img src="${imgSrc}" alt="Gallery ${i + 1}">
+                <div class="gallery-overlay" onclick="openLightbox(this)">
+                    <i class="fas fa-search-plus"></i>
+                </div>
+            `;
+            galleryGrid.appendChild(item);
+        });
+
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = hamburger.querySelector('i');
+            icon.classList.toggle('fa-times');
+            icon.classList.toggle('fa-bars');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                const icon = hamburger.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        let currentSlide = 0;
+        const sliderContainer = document.getElementById('sliderContainer');
+        const slides = document.querySelectorAll('.slide');
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            sliderContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        setInterval(nextSlide, 4000);
+
+        const modal = document.getElementById('carModal');
+        const modalClose = document.querySelector('.modal-close');
+        
+        function openModal(index) {
+            const car = cars[index];
+            document.getElementById('modalImg').src = car.img;
+            document.getElementById('modalTitle').innerText = car.name;
+            document.getElementById('modalPrice').innerText = car.price;
+            document.getElementById('modalYear').innerText = car.year;
+            document.getElementById('modalTrans').innerText = car.trans;
+            document.getElementById('modalSeat').innerText = car.cap;
+            document.getElementById('modalBagasi').innerText = car.bagasi;
+            
+            modal.style.display = "flex";
+            document.body.style.overflow = "hidden";
+        }
+
+        modalClose.onclick = function() {
+            modal.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal || event.target == document.getElementById('lightboxModal')) {
+                modal.style.display = "none";
+                document.getElementById('lightboxModal').style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+
+        const lightboxModal = document.getElementById('lightboxModal');
+        
+        function openLightbox(element) {
+            // Mengambil URL gambar yang asli (ukuran besar) langsung dari array
+            const imgSrc = element.previousElementSibling.src;
+            document.getElementById('lightboxImg').src = imgSrc;
+            lightboxModal.style.display = "flex";
+        }
+
+        function closeLightbox() {
+            lightboxModal.style.display = "none";
+        }
+
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+                tabcontent[i].classList.remove("active");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.className += " active";
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
